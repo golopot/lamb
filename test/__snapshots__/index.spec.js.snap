@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser (λx{x})((λx{x})(t)) 1`] = `
+Object {
+  "argument": Object {
+    "argument": "t",
+    "func": Object {
+      "type": "paren",
+      "x": Object {
+        "body": "x",
+        "parameter": "x",
+        "type": "λ",
+      },
+    },
+    "type": "call",
+  },
+  "func": Object {
+    "type": "paren",
+    "x": Object {
+      "body": "x",
+      "parameter": "x",
+      "type": "λ",
+    },
+  },
+  "type": "call",
+}
+`;
+
+exports[`parser (λx{x})(y) 1`] = `
+Object {
+  "argument": "y",
+  "func": Object {
+    "type": "paren",
+    "x": Object {
+      "body": "x",
+      "parameter": "x",
+      "type": "λ",
+    },
+  },
+  "type": "call",
+}
+`;
+
+exports[`parser (λx{λt{x}})(t)(s) 1`] = `
+Object {
+  "argument": "s",
+  "func": Object {
+    "argument": "t",
+    "func": Object {
+      "type": "paren",
+      "x": Object {
+        "body": Object {
+          "body": "x",
+          "parameter": "t",
+          "type": "λ",
+        },
+        "parameter": "x",
+        "type": "λ",
+      },
+    },
+    "type": "call",
+  },
+  "type": "call",
+}
+`;
+
+exports[`parser (λx{λx{x}})(t)(s) 1`] = `
+Object {
+  "argument": "s",
+  "func": Object {
+    "argument": "t",
+    "func": Object {
+      "type": "paren",
+      "x": Object {
+        "body": Object {
+          "body": "x",
+          "parameter": "x",
+          "type": "λ",
+        },
+        "parameter": "x",
+        "type": "λ",
+      },
+    },
+    "type": "call",
+  },
+  "type": "call",
+}
+`;
+
+exports[`parser (λx{λy{x(y)}})(t)(s) 1`] = `
+Object {
+  "argument": "s",
+  "func": Object {
+    "argument": "t",
+    "func": Object {
+      "type": "paren",
+      "x": Object {
+        "body": Object {
+          "body": Object {
+            "argument": "y",
+            "func": "x",
+            "type": "call",
+          },
+          "parameter": "y",
+          "type": "λ",
+        },
+        "parameter": "x",
+        "type": "λ",
+      },
+    },
+    "type": "call",
+  },
+  "type": "call",
+}
+`;
+
+exports[`parser (λx{λy{x}})(t) 1`] = `
+Object {
+  "argument": "t",
+  "func": Object {
+    "type": "paren",
+    "x": Object {
+      "body": Object {
+        "body": "x",
+        "parameter": "y",
+        "type": "λ",
+      },
+      "parameter": "x",
+      "type": "λ",
+    },
+  },
+  "type": "call",
+}
+`;
+
+exports[`parser (λx{λy{x}})(t)(s) 1`] = `
+Object {
+  "argument": "s",
+  "func": Object {
+    "argument": "t",
+    "func": Object {
+      "type": "paren",
+      "x": Object {
+        "body": Object {
+          "body": "x",
+          "parameter": "y",
+          "type": "λ",
+        },
+        "parameter": "x",
+        "type": "λ",
+      },
+    },
+    "type": "call",
+  },
+  "type": "call",
+}
+`;
+
+exports[`reduce (λx{x})((λx{x})(t)) 1`] = `
+Object {
+  "argument": "t",
+  "func": Object {
+    "type": "paren",
+    "x": Object {
+      "body": "x",
+      "parameter": "x",
+      "type": "λ",
+    },
+  },
+  "type": "call",
+}
+`;
+
+exports[`reduce (λx{x})(y) 1`] = `"y"`;
+
+exports[`reduce (λx{λt{x}})(t)(s) 1`] = `"t"`;
+
+exports[`reduce (λx{λx{x}})(t)(s) 1`] = `"s"`;
+
+exports[`reduce (λx{λy{x(y)}})(t)(s) 1`] = `
+Object {
+  "argument": "y",
+  "func": "x",
+  "type": "call",
+}
+`;
+
+exports[`reduce (λx{λy{x}})(t) 1`] = `
+Object {
+  "body": "x",
+  "env": Object {
+    "x": "t",
+  },
+  "parameter": "y",
+  "type": "λ",
+}
+`;
+
+exports[`reduce (λx{λy{x}})(t)(s) 1`] = `"t"`;
